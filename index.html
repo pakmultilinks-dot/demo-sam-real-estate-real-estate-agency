@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#1f5c3d" />
+  <meta name="description" content="Free demo concept website for Sam Real Estate, a Real Estate Agency in Lahore. A sample design showing what their website could look like." />
+  <link rel="icon" href="data:," />
+  <title>Sam Real Estate - Free Demo Website Concept</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f7f8f6;
+      --surface: #ffffff;
+      --surface-2: #f1f3f1;
+      --ink: #1c2220;
+      --muted: #5a6663;
+      --brand: #1f5c3d;
+      --brand-strong: #16432c;
+      --brand-soft: #e2f0e7;
+      --accent: #a9762f;
+      --accent-ink: #3a2705;
+      --line: #dfe4e1;
+      --danger: #b64141;
+      --shadow: 0 18px 45px rgba(20, 30, 28, .10);
+      --radius-lg: 28px;
+      --radius-md: 18px;
+      --radius-sm: 11px;
+      --font-body: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --font-display: "Manrope", "DM Sans", system-ui, sans-serif;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0e1211;
+        --surface: #161c1a;
+        --surface-2: #1d2522;
+        --ink: #eef4f1;
+        --muted: #a9bab4;
+        --brand: #7cc79b;
+        --brand-strong: #93d6ad;
+        --brand-soft: #16382a;
+        --accent: #d9a45c;
+        --accent-ink: #241b04;
+        --line: #2b3531;
+        --danger: #ff9292;
+        --shadow: 0 20px 55px rgba(0, 0, 0, .30);
+      }
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 120px; }
+    body {
+      margin: 0; min-width: 320px; background: var(--bg); color: var(--ink);
+      font-family: var(--font-body); font-size: 16px; line-height: 1.65;
+      text-rendering: optimizeLegibility;
+    }
+    body.menu-open { overflow: hidden; }
+    button, input, textarea, select { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    a { color: inherit; }
+    img, svg { display: block; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+    .container { width: min(1160px, calc(100% - 40px)); margin-inline: auto; }
+    .skip-link { position: fixed; z-index: 1000; top: 10px; left: 10px; padding: 10px 14px; background: var(--surface); color: var(--ink); border-radius: 8px; transform: translateY(-160%); }
+    .skip-link:focus { transform: translateY(0); }
+
+    .demo-strip {
+      background: var(--accent); color: var(--accent-ink);
+      text-align: center; font-weight: 800; font-size: .85rem; letter-spacing: .04em;
+      padding: 10px 20px; text-transform: uppercase;
+    }
+    .demo-strip small { display: block; font-weight: 600; text-transform: none; letter-spacing: .01em; font-size: .78rem; margin-top: 2px; }
+
+    header { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--surface) 94%, transparent); border-bottom: 1px solid var(--line); backdrop-filter: blur(14px); }
+    .nav-wrap { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; line-height: 1.2; }
+    .brand-mark { width: 36px; height: 36px; color: var(--brand); flex: 0 0 auto; }
+    .nav-links { display: flex; align-items: center; gap: 4px; }
+    .nav-links a { text-decoration: none; color: var(--muted); font-weight: 600; font-size: .94rem; padding: 10px 13px; border-radius: 9px; }
+    .nav-links a:hover, .nav-links a:focus-visible { background: var(--surface-2); color: var(--brand-strong); outline: none; }
+    .nav-cta { background: var(--brand) !important; color: #fff !important; }
+    .menu-toggle { display: none; border: 0; background: transparent; color: var(--ink); padding: 8px; border-radius: 8px; cursor: pointer; }
+    .menu-toggle svg { width: 25px; height: 25px; }
+
+    .section { padding: 96px 0; }
+    .section-head { max-width: 700px; margin-bottom: 40px; }
+    .eyebrow { color: var(--brand); font-weight: 700; margin: 0 0 8px; text-transform: uppercase; letter-spacing: .08em; font-size: .85rem; }
+    h1, h2, h3 { font-family: var(--font-display); line-height: 1.12; margin: 0; letter-spacing: -.035em; }
+    h1 { font-size: clamp(2.4rem, 6.5vw, 4.6rem); max-width: 860px; }
+    h2 { font-size: clamp(2rem, 4.4vw, 3.3rem); }
+    h3 { font-size: 1.18rem; letter-spacing: -.02em; }
+    p { margin: 0; }
+    .section-head > p:last-child { color: var(--muted); font-size: 1.05rem; margin-top: 15px; }
+
+    .hero { padding: 72px 0 76px; overflow: hidden; position: relative; }
+    .hero::before { content: ""; position: absolute; width: 520px; height: 520px; border: 90px solid var(--brand-soft); border-radius: 50%; right: -160px; top: -230px; opacity: .8; pointer-events: none; }
+    .hero::after { content: ""; position: absolute; width: 34px; height: 34px; background: var(--accent); border-radius: 8px; right: 12%; bottom: 18%; transform: rotate(18deg); opacity: .55; pointer-events: none; }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr); gap: 72px; align-items: center; position: relative; }
+    .hero-copy .eyebrow { display: inline-flex; align-items: center; gap: 8px; }
+    .hero-copy .eyebrow::before { content: ""; width: 34px; height: 2px; background: var(--brand); }
+    .hero-copy > p:not(.eyebrow) { color: var(--muted); max-width: 620px; font-size: clamp(1.08rem, 2vw, 1.25rem); margin-top: 22px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .btn { min-height: 50px; display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 0 20px; border-radius: 12px; text-decoration: none; border: 1px solid transparent; font-weight: 700; cursor: pointer; transition: background .2s ease, border-color .2s ease, color .2s ease; }
+    .btn svg { width: 19px; height: 19px; }
+    .btn-primary { background: var(--brand); color: #fff; }
+    .btn-primary:hover, .btn-primary:focus-visible { background: var(--brand-strong); }
+    .btn-secondary { background: var(--surface); color: var(--ink); border-color: var(--line); }
+    .btn-secondary:hover, .btn-secondary:focus-visible { border-color: var(--brand); color: var(--brand-strong); }
+    .hero-notes { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 30px; color: var(--muted); font-size: .9rem; }
+    .hero-note { display: inline-flex; align-items: center; gap: 7px; }
+    .hero-note svg { width: 17px; height: 17px; color: var(--brand); }
+
+    .panel { position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 26px; box-shadow: var(--shadow); }
+    .panel::after { content: ""; position: absolute; inset: auto 28px -9px 28px; height: 9px; border-radius: 0 0 10px 10px; background: var(--accent); opacity: .75; }
+    .panel-label { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; margin-bottom: 14px; }
+    .tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 18px; }
+    .tab { border: 1px solid var(--line); background: var(--bg); color: var(--muted); border-radius: 10px; padding: 11px 8px; font-weight: 700; cursor: pointer; transition: all .18s ease; }
+    .tab:hover { border-color: var(--brand); color: var(--brand-strong); }
+    .tab.active { background: var(--brand); border-color: var(--brand); color: #fff; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+    .tab-panel > p { color: var(--muted); font-size: .98rem; margin-bottom: 14px; }
+    .tab-list { list-style: none; margin: 0 0 20px; padding: 0; display: grid; gap: 9px; }
+    .tab-list li { display: flex; gap: 9px; align-items: flex-start; font-size: .94rem; }
+    .tab-list svg { width: 18px; height: 18px; color: var(--brand); flex: 0 0 auto; margin-top: 3px; }
+    .panel-note { color: var(--muted); font-size: .8rem; margin-top: 14px; }
+
+    .services { background: var(--surface); }
+    .services-layout { display: grid; grid-template-columns: .82fr 1.18fr; gap: 44px; align-items: start; }
+    .service-intro { position: sticky; top: 140px; }
+    .service-intro p:last-of-type { color: var(--muted); margin-top: 16px; }
+    .service-list { display: grid; }
+    .service-row { display: grid; grid-template-columns: 60px 1fr; gap: 20px; padding: 26px 0; border-top: 1px solid var(--line); }
+    .service-row:last-child { border-bottom: 1px solid var(--line); }
+    .service-icon { width: 52px; height: 52px; display: grid; place-items: center; border-radius: 14px; background: var(--brand-soft); color: var(--brand); }
+    .service-icon svg { width: 26px; height: 26px; }
+    .service-row p { color: var(--muted); margin-top: 7px; }
+    .service-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .service-tags span { font-size: .8rem; font-weight: 600; background: var(--surface-2); border: 1px solid var(--line); border-radius: 20px; padding: 4px 12px; color: var(--muted); }
+
+    .areas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .area-card { padding: 26px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-md); transition: transform .18s ease, box-shadow .18s ease; }
+    .area-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .area-icon { width: 48px; height: 48px; display: grid; place-items: center; border-radius: 50%; background: var(--brand-soft); color: var(--brand); margin-bottom: 20px; }
+    .area-icon svg { width: 25px; height: 25px; }
+    .area-card > p { color: var(--muted); margin-top: 9px; font-size: .95rem; }
+
+    .why { background: var(--surface); }
+    .why-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .why-card { display: grid; grid-template-columns: 54px 1fr; gap: 18px; padding: 26px; background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius-md); }
+    .why-number { font-family: var(--font-display); color: var(--brand); font-weight: 800; font-size: 1.4rem; }
+    .why-card p { color: var(--muted); margin-top: 7px; font-size: .95rem; }
+
+    .cta-band { background: var(--brand-strong); color: #f4f7ff; }
+    .cta-band .eyebrow { color: var(--accent); }
+    .cta-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 60px; align-items: center; }
+    .cta-copy > p:last-child { color: #ccd6ea; margin-top: 16px; max-width: 520px; }
+    .cta-card { background: #ffffff; color: #1c2220; border-radius: var(--radius-lg); padding: 28px; box-shadow: 0 20px 50px rgba(0,0,0,.18); }
+    .cta-card h3 { margin-bottom: 8px; }
+    .cta-card p { color: #5a6663; font-size: .95rem; margin-bottom: 18px; }
+    .cta-card .btn { width: 100%; margin-bottom: 10px; }
+    .cta-card .btn-secondary { background: #ffffff; border-color: #dfe4e1; color: #1c2220; }
+    .cta-phone-note { display: block; text-align: center; margin-top: 8px; }
+    .placeholder-tag { display: inline-block; padding: 2px 7px; border-radius: 5px; background: var(--accent); color: var(--accent-ink) !important; font-size: .72rem; font-weight: 700; margin-left: 5px; vertical-align: middle; }
+
+    .contact-grid { display: grid; grid-template-columns: .78fr 1.22fr; gap: 54px; }
+    .contact-copy > p { color: var(--muted); margin-top: 15px; }
+    .contact-details { margin-top: 30px; display: grid; gap: 20px; }
+    .contact-detail { display: grid; grid-template-columns: 38px 1fr; gap: 12px; }
+    .contact-detail svg { width: 22px; height: 22px; color: var(--brand); margin-top: 3px; }
+    .contact-detail strong { display: block; }
+    .contact-detail span, .contact-detail a { color: var(--muted); text-decoration: none; }
+    .contact-actions { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px; }
+    .contact-form { background: var(--surface); padding: 30px; border: 1px solid var(--line); border-radius: var(--radius-lg); box-shadow: var(--shadow); }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .field.full { grid-column: 1 / -1; }
+    .field label { display: block; font-weight: 700; font-size: .9rem; margin-bottom: 7px; }
+    .field input, .field textarea, .field select { width: 100%; border: 1px solid var(--line); border-radius: 10px; background: var(--bg); color: var(--ink); padding: 12px 13px; outline: none; }
+    .field textarea { resize: vertical; min-height: 126px; }
+    .field input:focus, .field textarea:focus, .field select:focus { border-color: var(--brand); box-shadow: 0 0 0 3px var(--brand-soft); }
+    .field [aria-invalid="true"] { border-color: var(--danger); }
+    .error { color: var(--danger); font-size: .78rem; min-height: 20px; margin-top: 3px; }
+    .form-footer { display: flex; align-items: center; gap: 16px; margin-top: 18px; }
+    .form-note { color: var(--muted); font-size: .82rem; line-height: 1.4; }
+    .form-message { display: none; margin-top: 15px; padding: 12px 14px; background: var(--brand-soft); color: var(--brand-strong); border-radius: 10px; font-weight: 700; }
+    .form-message.show { display: block; }
+
+    footer { padding: 35px 0 max(35px, env(safe-area-inset-bottom)); border-top: 1px solid var(--line); }
+    .footer-wrap { display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+    .footer-credit { font-family: var(--font-display); font-weight: 700; }
+    .footer-note { color: var(--muted); font-size: .85rem; text-align: right; max-width: 620px; }
+    :focus-visible { outline: 3px solid color-mix(in srgb, var(--brand) 55%, transparent); outline-offset: 3px; }
+
+    @media (max-width: 900px) {
+      .hero-grid, .cta-grid, .contact-grid { grid-template-columns: 1fr; }
+      .hero-grid { gap: 48px; }
+      .areas-grid { grid-template-columns: repeat(2, 1fr); }
+      .why-grid { grid-template-columns: 1fr; }
+      .services-layout { grid-template-columns: 1fr; gap: 28px; }
+      .service-intro { position: static; }
+      .cta-grid { gap: 38px; }
+      .contact-grid { gap: 42px; }
+    }
+    @media (max-width: 740px) {
+      .container { width: min(100% - 30px, 620px); }
+      .demo-strip { font-size: .72rem; }
+      .nav-wrap { min-height: 64px; }
+      .brand { font-size: .95rem; }
+      .brand-mark { width: 31px; height: 31px; }
+      .menu-toggle { display: inline-grid; place-items: center; }
+      .nav-links { position: fixed; top: 129px; left: 15px; right: 15px; display: none; padding: 13px; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow); }
+      .nav-links.open { display: grid; }
+      .nav-links a { padding: 12px 13px; }
+      .section { padding: 72px 0; }
+      .hero { padding: 54px 0 66px; }
+      .hero-actions { display: grid; grid-template-columns: 1fr; }
+      .btn { width: 100%; }
+      .hero-notes { display: grid; gap: 9px; }
+      .areas-grid { grid-template-columns: 1fr; }
+      .service-row { grid-template-columns: 46px 1fr; gap: 12px; }
+      .service-icon { width: 44px; height: 44px; }
+      .form-grid { grid-template-columns: 1fr; }
+      .field.full { grid-column: auto; }
+      .contact-form { padding: 21px; border-radius: 20px; }
+      .form-footer { display: grid; }
+      .footer-wrap { display: grid; gap: 8px; }
+      .footer-note { text-align: left; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="demo-strip" role="note">
+    Free demo concept - sample website design, not the official site
+    <small>Made to show what Sam Real Estate's website could look like. Nothing here is the business's official information.</small>
+  </div>
+  <header>
+    <div class="container nav-wrap">
+      <a class="brand" href="#home" aria-label="Sam Real Estate home">
+        <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true"><path fill="currentColor" d="M8 42V17l16-9 16 9v25h-9V28H17v14H8z"/><rect x="21" y="32" width="6" height="10" fill="var(--surface)"/><rect x="12" y="21" width="5" height="5" fill="var(--surface)" opacity=".85"/><rect x="31" y="21" width="5" height="5" fill="var(--surface)" opacity=".85"/></svg>
+        <span>Sam Real Estate</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-links">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav class="nav-links" id="nav-links" aria-label="Primary navigation">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#areas">Areas</a>
+        <a href="#why">Why Us</a>
+        <a href="#contact">Contact</a>
+        <a class="nav-cta" href="https://wa.me/923000000000" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Real Estate Agency - Lahore</p>
+          <h1>Sam Real Estate</h1>
+          <p>Buy, sell, or rent property across Lahore with straightforward, local guidance. Tell us what you are looking for, and we will help you take the next step.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://wa.me/923000000000" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9.8 9.8 0 0 1-3.8-.9L3 20.5l1.5-5a8.5 8.5 0 1 1 16.5-4Z"/><path d="M8.4 8.3c.2-.5.4-.5.7-.5h.5c.2 0 .4.1.5.4l.8 1.8c.1.2.1.4 0 .6l-.6.9c-.1.2-.1.4 0 .6.6 1.1 1.5 1.9 2.6 2.5.2.1.4.1.6-.1l.9-1c.2-.2.4-.2.6-.1l1.8.9c.3.1.4.3.4.5 0 .3-.1 1.4-.7 2-.5.6-1.4.8-2.3.7-1.2-.2-2.7-.8-4.4-2.3-1.3-1.2-2.3-2.6-2.7-3.8-.4-1-.3-2.1.3-2.9Z"/></svg>
+              Chat on WhatsApp
+            </a>
+            <a class="btn btn-secondary" href="#services">Our Services</a>
+          </div>
+          <div class="hero-notes" aria-label="Service highlights">
+            <span class="hero-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>Buying</span>
+            <span class="hero-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>Selling</span>
+            <span class="hero-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>Renting</span>
+            <span class="hero-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>Lahore-based</span>
+          </div>
+        </div>
+
+        <aside class="panel" aria-labelledby="panel-title">
+          <p class="panel-label" id="panel-title">What are you looking for?</p>
+          <div class="tabs" role="tablist" aria-label="Choose your goal">
+            <button class="tab active" role="tab" id="tab-buy" aria-selected="true" aria-controls="tabpanel-buy" data-tab="buy">Buy</button>
+            <button class="tab" role="tab" id="tab-sell" aria-selected="false" aria-controls="tabpanel-sell" data-tab="sell" tabindex="-1">Sell</button>
+            <button class="tab" role="tab" id="tab-rent" aria-selected="false" aria-controls="tabpanel-rent" data-tab="rent" tabindex="-1">Rent</button>
+          </div>
+          <div class="tab-panel active" role="tabpanel" id="tabpanel-buy" aria-labelledby="tab-buy" tabindex="0">
+            <p>Share your budget range and preferred area. We shortlist suitable options, arrange viewings, and guide you through negotiation and paperwork.</p>
+            <ul class="tab-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>Area and budget shortlisting</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>Guided site visits on your schedule</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>Documentation and transfer support</li>
+            </ul>
+            <a class="btn btn-primary" href="https://wa.me/923000000000?text=Assalam-o-Alaikum%2C%20I%20am%20interested%20in%20buying%20a%20property.%20Please%20share%20details." target="_blank" rel="noopener noreferrer">I want to buy</a>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="tabpanel-sell" aria-labelledby="tab-sell" tabindex="0" hidden>
+            <p>Share your property details. We help you present it well, connect with genuine buyers, and coordinate the sale process from listing to transfer.</p>
+            <ul class="tab-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>Listing and marketing assistance</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>Buyer meetings and coordination</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>Sale documentation guidance</li>
+            </ul>
+            <a class="btn btn-primary" href="https://wa.me/923000000000?text=Assalam-o-Alaikum%2C%20I%20want%20to%20sell%20my%20property.%20Please%20guide%20me." target="_blank" rel="noopener noreferrer">I want to sell</a>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="tabpanel-rent" aria-labelledby="tab-rent" tabindex="0" hidden>
+            <p>Looking for a home or shop to rent, or have one to let out? We connect owners and tenants and help with rental agreements.</p>
+            <ul class="tab-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>Residential and commercial rentals</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>Tenant and owner matching</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>Rental agreement guidance</li>
+            </ul>
+            <a class="btn btn-primary" href="https://wa.me/923000000000?text=Assalam-o-Alaikum%2C%20I%20am%20looking%20for%20a%20rental%20property.%20Please%20share%20options." target="_blank" rel="noopener noreferrer">I want to rent</a>
+          </div>
+          <p class="panel-note">Demo preview only. WhatsApp buttons use a placeholder number.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section services" id="services">
+      <div class="container services-layout">
+        <div class="service-intro section-head">
+          <p class="eyebrow">What we do</p>
+          <h2>One team for every property need.</h2>
+          <p>Whether you are buying your first plot, selling a family home, or finding a shop to rent, the process stays simple and transparent.</p>
+        </div>
+        <div class="service-list">
+          <article class="service-row">
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10.5V20h14v-9.5"/><path d="M9 20v-6h6v6"/></svg></div>
+            <div><h3>Buying</h3><p>Tell us your budget and preferred areas. We shortlist options that fit, arrange site visits, and stay with you through negotiation, documentation, and transfer.</p>
+              <div class="service-tags"><span>Plots</span><span>Houses</span><span>Apartments</span><span>Commercial</span></div></div>
+          </article>
+          <article class="service-row">
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 3v7l7-7H3z"/><path d="m10 10 11 11"/><path d="M5 13v8h14v-4"/><circle cx="17.5" cy="6.5" r="2.5"/></svg></div>
+            <div><h3>Selling</h3><p>We help you present your property well, reach genuine buyers, handle viewing appointments, and coordinate the paperwork until the deal is complete.</p>
+              <div class="service-tags"><span>Property listing</span><span>Buyer coordination</span><span>Deal closure</span></div></div>
+          </article>
+          <article class="service-row">
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="8" cy="12" r="4"/><path d="M12 12h9"/><path d="M18 12v4a1.5 1.5 0 0 0 3 0v-5.5a1.5 1.5 0 0 0-1.5-1.5H17"/><path d="M6 10V8a2 2 0 0 1 2-2h1"/></svg></div>
+            <div><h3>Renting and Leasing</h3><p>From family homes to commercial shops and offices, we match tenants with owners and help both sides with clear rental agreements.</p>
+              <div class="service-tags"><span>Homes</span><span>Shops</span><span>Offices</span><span>Portions</span></div></div>
+          </article>
+          <article class="service-row">
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8l-5-5z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h6"/></svg></div>
+            <div><h3>Documentation Guidance</h3><p>Property paperwork can be confusing. We walk you through the steps, explain what each document means, and keep everything organised.</p>
+              <div class="service-tags"><span>Sale deeds</span><span>Agreements</span><span>Transfer steps</span></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="areas">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Areas we serve</p>
+          <h2>Lahore is our home ground.</h2>
+          <p>We deal in the city's established residential and commercial areas. Ask about any of these, or tell us where you are looking.</p>
+        </div>
+        <div class="areas-grid">
+          <article class="area-card">
+            <div class="area-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+            <h3>DHA Lahore</h3><p>Residential and commercial dealings across DHA's established phases.</p>
+          </article>
+
+          <article class="area-card">
+            <div class="area-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+            <h3>Model Town</h3><p>One of Lahore's oldest residential societies, popular for houses and plots.</p>
+          </article>
+
+          <article class="area-card">
+            <div class="area-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+            <h3>Wapda Town</h3><p>A well-known family neighbourhood with houses, portions, and apartments.</p>
+          </article>
+
+          <article class="area-card">
+            <div class="area-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+            <h3>Johar Town</h3><p>A large, established town with houses, apartments, and commercial plazas.</p>
+          </article>
+
+          <article class="area-card">
+            <div class="area-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+            <h3>Bahria Town</h3><p>A modern gated community with villas, apartments, and commercial areas.</p>
+          </article>
+
+          <article class="area-card">
+            <div class="area-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+            <h3>Gulberg</h3><p>Central Lahore's commercial and residential hub, close to main boulevards.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section why" id="why">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Why work with us</p>
+          <h2>Straightforward dealing, no pressure.</h2>
+          <p>Property decisions are big decisions. Here is how we keep the process comfortable for you.</p>
+        </div>
+        <div class="why-grid">
+          <article class="why-card"><div class="why-number">01</div><div><h3>One point of contact</h3><p>You talk directly with the team handling your case. No call centres, no being passed around.</p></div></article>
+          <article class="why-card"><div class="why-number">02</div><div><h3>Viewings on your schedule</h3><p>Site visits are arranged around your routine, on weekdays or weekends, at a time that suits you.</p></div></article>
+          <article class="why-card"><div class="why-number">03</div><div><h3>Clear, honest advice</h3><p>We tell you what we know about an area or a deal, including the downsides, so you can decide with open eyes.</p></div></article>
+          <article class="why-card"><div class="why-number">04</div><div><h3>No-obligation first chat</h3><p>Ask your questions before committing to anything. The first conversation costs nothing.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta-band" id="cta">
+      <div class="container cta-grid">
+        <div class="cta-copy">
+          <p class="eyebrow">Get in touch</p>
+          <h2>Ready to talk property?</h2>
+          <p>Buying, selling, or renting, send a message and tell us what you need. We will get back to you with the next steps.</p>
+        </div>
+        <div class="cta-card">
+          <h3>Start the conversation</h3>
+          <p>The fastest way to reach us is WhatsApp. Tap below to start a chat.</p>
+          <a class="btn btn-primary" href="https://wa.me/923000000000" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9.8 9.8 0 0 1-3.8-.9L3 20.5l1.5-5a8.5 8.5 0 1 1 16.5-4Z"/><path d="M8.4 8.3c.2-.5.4-.5.7-.5h.5c.2 0 .4.1.5.4l.8 1.8c.1.2.1.4 0 .6l-.6.9c-.1.2-.1.4 0 .6.6 1.1 1.5 1.9 2.6 2.5.2.1.4.1.6-.1l.9-1c.2-.2.4-.2.6-.1l1.8.9c.3.1.4.3.4.5 0 .3-.1 1.4-.7 2-.5.6-1.4.8-2.3.7-1.2-.2-2.7-.8-4.4-2.3-1.3-1.2-2.3-2.6-2.7-3.8-.4-1-.3-2.1.3-2.9Z"/></svg>
+            Message on WhatsApp
+          </a>
+          <a class="btn btn-secondary" href="tel:+923000000000">Call +92 300 0000000</a>
+          <span class="cta-phone-note"><span class="placeholder-tag">placeholder number</span></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-copy">
+          <p class="eyebrow">Contact</p>
+          <h2>Visit us or send a message.</h2>
+          <p>Drop by the office, give us a call, or send your requirement through the form.</p>
+          <div class="contact-details">
+            <div class="contact-detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg><div><strong>Visit the office</strong><span>Plot 422 C/Q, Model Town Extension Block Q, Model Town, Lahore</span></div></div>
+            <div class="contact-detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.4 19.4 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z"/></svg><div><strong>Call us</strong><a href="tel:+923000000000">+92 300 0000000</a><span class="placeholder-tag">placeholder</span></div></div>
+            <div class="contact-detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9.8 9.8 0 0 1-3.8-.9L3 20.5l1.5-5a8.5 8.5 0 1 1 16.5-4Z"/><path d="M8.4 8.3c.2-.5.4-.5.7-.5h.5c.2 0 .4.1.5.4l.8 1.8c.1.2.1.4 0 .6l-.6.9c-.1.2-.1.4 0 .6.6 1.1 1.5 1.9 2.6 2.5.2.1.4.1.6-.1l.9-1c.2-.2.4-.2.6-.1l1.8.9c.3.1.4.3.4.5 0 .3-.1 1.4-.7 2-.5.6-1.4.8-2.3.7-1.2-.2-2.7-.8-4.4-2.3-1.3-1.2-2.3-2.6-2.7-3.8-.4-1-.3-2.1.3-2.9Z"/></svg><div><strong>WhatsApp</strong><a href="https://wa.me/923000000000" target="_blank" rel="noopener noreferrer">Chat with us</a><span class="placeholder-tag">placeholder</span></div></div>
+          </div>
+          <div class="contact-actions"><a class="btn btn-primary" href="https://wa.me/923000000000" target="_blank" rel="noopener noreferrer">WhatsApp Us</a></div>
+        </div>
+
+        <form class="contact-form" id="contact-form" novalidate>
+          <div class="form-grid">
+            <div class="field"><label for="name">Your name</label><input id="name" name="name" type="text" autocomplete="name" required minlength="2" /><div class="error" id="name-error"></div></div>
+            <div class="field"><label for="phone">Phone number</label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required placeholder="03XX XXXXXXX" /><div class="error" id="phone-error"></div></div>
+            <div class="field full"><label for="interest">I am interested in</label>
+              <select id="interest" name="interest">
+                <option value="buying">Buying a property</option>
+                <option value="selling">Selling a property</option>
+                <option value="renting">Renting a property</option>
+                <option value="enquiring">Just enquiring</option>
+              </select>
+            </div>
+            <div class="field full"><label for="message">Your requirement</label><textarea id="message" name="message" required minlength="10" placeholder="For example: looking for a 10 marla house in Wapda Town, or want to sell a plot in DHA."></textarea><div class="error" id="message-error"></div></div>
+          </div>
+          <div class="form-footer"><button class="btn btn-primary" type="submit">Check my message</button><span class="form-note">This demo validates your message on this page; it does not send or store it.</span></div>
+          <div class="form-message" id="form-message" role="status">Looks good. Your message passed validation. This is a demo, so nothing was sent.</div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-wrap">
+      <p class="footer-credit">Free demo concept crafted by Abdur Rehman</p>
+      <p class="footer-note">This is a free demo concept website made to show what Sam Real Estate's site could look like. It is not their official website. The office address shown is the business's public address; the phone number (+92 300 0000000) is a placeholder.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var menuToggle = document.getElementById("menu-toggle");
+      var navLinks = document.getElementById("nav-links");
+      function closeMenu() {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation menu");
+        document.body.classList.remove("menu-open");
+      }
+      menuToggle.addEventListener("click", function () {
+        var isOpen = navLinks.classList.toggle("open");
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+        menuToggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+        document.body.classList.toggle("menu-open", isOpen);
+      });
+      navLinks.addEventListener("click", function (event) { if (event.target.closest("a")) closeMenu(); });
+      window.addEventListener("resize", function () { if (window.innerWidth > 740) closeMenu(); });
+      document.addEventListener("keydown", function (event) { if (event.key === "Escape") closeMenu(); });
+
+      var tabs = Array.prototype.slice.call(document.querySelectorAll(".tab"));
+      var panels = Array.prototype.slice.call(document.querySelectorAll(".tab-panel"));
+      function selectTab(tab) {
+        tabs.forEach(function (t) {
+          var active = t === tab;
+          t.classList.toggle("active", active);
+          t.setAttribute("aria-selected", String(active));
+          t.tabIndex = active ? 0 : -1;
+        });
+        panels.forEach(function (p) {
+          var show = p.getAttribute("aria-labelledby") === tab.id;
+          p.classList.toggle("active", show);
+          if (show) { p.removeAttribute("hidden"); } else { p.setAttribute("hidden", ""); }
+        });
+      }
+      tabs.forEach(function (tab) {
+        tab.addEventListener("click", function () { selectTab(tab); });
+        tab.addEventListener("keydown", function (event) {
+          var i = tabs.indexOf(tab);
+          if (event.key === "ArrowRight") { var n = tabs[(i + 1) % tabs.length]; n.focus(); selectTab(n); }
+          if (event.key === "ArrowLeft") { var pr = tabs[(i - 1 + tabs.length) % tabs.length]; pr.focus(); selectTab(pr); }
+        });
+      });
+
+      var form = document.getElementById("contact-form");
+      var formMessage = document.getElementById("form-message");
+      var fields = {
+        name: document.getElementById("name"),
+        phone: document.getElementById("phone"),
+        message: document.getElementById("message")
+      };
+      function setError(name, message) {
+        fields[name].setAttribute("aria-invalid", message ? "true" : "false");
+        document.getElementById(name + "-error").textContent = message;
+      }
+      function validate() {
+        var valid = true;
+        var name = fields.name.value.trim();
+        var phone = fields.phone.value.trim();
+        var message = fields.message.value.trim();
+        setError("name", name.length < 2 ? "Please enter at least 2 characters." : "");
+        setError("phone", !/^[+0-9][0-9 +()-]{8,17}$/.test(phone) ? "Please enter a valid phone number." : "");
+        setError("message", message.length < 10 ? "Please add at least 10 characters." : "");
+        if (name.length < 2 || !/^[+0-9][0-9 +()-]{8,17}$/.test(phone) || message.length < 10) valid = false;
+        return valid;
+      }
+      Object.keys(fields).forEach(function (name) {
+        fields[name].addEventListener("input", function () {
+          setError(name, "");
+          formMessage.classList.remove("show");
+        });
+      });
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        formMessage.classList.remove("show");
+        if (validate()) {
+          formMessage.classList.add("show");
+          formMessage.focus();
+        } else {
+          var firstInvalid = form.querySelector('[aria-invalid="true"]');
+          if (firstInvalid) firstInvalid.focus();
+        }
+      });
+    }());
+  </script>
+</body>
+</html>
